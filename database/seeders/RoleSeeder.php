@@ -39,7 +39,5 @@ class RoleSeeder extends Seeder
             'name' => 'horarios',
             'descripcion' => 'Gestionar horarios'
         ])->syncRoles([$admi, $medico]);
-
-        
     }
 }

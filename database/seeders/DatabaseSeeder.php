@@ -24,11 +24,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Nahuel Zalazar',
             'email' => 'nahuel@gmail.com',
             'password' => bcrypt('12345678'),
+            'tipo_user' => 'admi',
         ])->assignRole('Administrador');
         User::create([
             'name' => 'Sofia Mendoza',
             'email' => 'sofia@gmail.com',
             'password' => bcrypt('12345678'),
+            'tipo_user' => 'medico',
         ])->assignRole('Médico');
     }
 }

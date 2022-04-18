@@ -19,11 +19,7 @@ class CreateMedicosTable extends Migration
             $table->string('apellido');
             $table->string('sexo');
             $table->string('telefono');
-            $table->string('email')->unique();
-            $table->unsignedBigInteger('clinica_id');
-            $table->foreign('clinica_id')->references('id')->on('clinicas');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('email');
             $table->timestamps();
         });
     }
