@@ -13,6 +13,7 @@ class LwCreate extends Component
     public $medico = [];
     public $especialidadL = [];
 
+
     public function add()
     {
         $this->validate([

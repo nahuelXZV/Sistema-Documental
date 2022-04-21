@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\administracion\PermisoController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\administracion\UsuarioController;
 use App\Http\Controllers\medico\ClinicaController;
 use App\Http\Controllers\administracion\RoleController;
+use App\Http\Controllers\medico\ConsultasController;
 use App\Http\Controllers\medico\EspecialidadesController;
+use App\Http\Controllers\medico\HorarioController;
 use App\Http\Controllers\medico\MedicoController;
+use App\Http\Controllers\paciente\ReservasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,6 @@ use App\Http\Controllers\medico\MedicoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 
 Route::middleware([
     'auth:sanctum',
@@ -59,4 +60,19 @@ Route::middleware([
     Route::get('/especialidades', [EspecialidadesController::class, 'index'])->name('especialidades.index');
     Route::get('/especialidades/create', [EspecialidadesController::class, 'create'])->name('especialidades.create');
     Route::get('/especialidades/edit/{id}', [EspecialidadesController::class, 'edit'])->name('especialidades.edit');
+
+    // Route Horarios de atencion
+    Route::get('/horarios', [HorarioController::class, 'index'])->name('horarios.index');
+    Route::get('/horarios/create', [HorarioController::class, 'create'])->name('horarios.create');
+    Route::get('/horarios/edit/{id}', [HorarioController::class, 'edit'])->name('horarios.edit');
+
+    // Route consultas
+    Route::get('/consultas', [ConsultasController::class, 'index'])->name('consultas.index');
+    Route::get('/consultas/create', [ConsultasController::class, 'create'])->name('consultas.create');
+    Route::get('/consultas/edit/{id}', [ConsultasController::class, 'edit'])->name('consultas.edit');
+
+    // Route reservas
+    Route::get('/reservas', [ReservasController::class, 'index'])->name('reservas.index');
+    Route::get('/reservas/create', [ReservasController::class, 'create'])->name('reservas.create');
+    Route::get('/reservas/edit/{id}', [ReservasController::class, 'edit'])->name('reservas.edit');
 });

@@ -29,4 +29,6 @@ class LwCreate extends Component
 
         return view('livewire.administracion.role.lw-create', compact('permisos'));
     }
+    // create a new method
+
 }

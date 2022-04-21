@@ -61,7 +61,7 @@
                             </label>
                         </div>
                     </li>
-
+                </ul>
             </div>
         </div>
         <div class="container-fluid flex">

@@ -33,7 +33,6 @@ class LwCreate extends Component
             'id_medico' => $this->id_medico,
             'id_user' => $this->id_user,
         ]);
-        $this->emitTo('LwIndex', 'success');
         return redirect()->route('usuario.index');
     }
 
