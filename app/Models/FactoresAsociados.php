@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Horario extends Model
+class FactoresAsociados extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'dia',
-        'hora_fin',
-        'hora_inicio',
+        'tipo_causa',
+        'descripcion',
+        'anamnesis_id',
     ];
 }

@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Horario extends Model
+class AnamnesisPatologicos extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'dia',
-        'hora_fin',
-        'hora_inicio',
+        'antecedentes_patologicos_id',
+        'anamnesis_id',
     ];
 }

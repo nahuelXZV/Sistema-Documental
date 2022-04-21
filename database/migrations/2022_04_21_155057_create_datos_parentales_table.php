@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePacientesTable extends Migration
+class CreateDatosParentalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,21 @@ class CreatePacientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pacientes', function (Blueprint $table) {
+        Schema::create('datos_parentales', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('vinculo');
+            $table->string('nombre');
+            $table->string('apellido');
             $table->string('tipo_documento');
             $table->string('documento');
-            $table->string('nombre');
-            $table->string('fecha_nacimiento');
-            $table->string('sexo');
-
-            $table->string('pais');
-            $table->string('departamento');
-            $table->string('distrito');
-            $table->string('nacionalidad');
+            $table->string('telefono');
+            $table->string('edad');
+            $table->string('ocupacion');
             $table->string('estado_civil');
-
             $table->string('nivel_educativo');
-            $table->string('año_cursado');
-
-            $table->string('seguro_medico');
-            $table->string('situacion_laboral');
-
+            $table->text('otros');
+            $table->unsignedBigInteger('paciente_id');
+            $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->timestamps();
         });
     }
@@ -45,6 +39,6 @@ class CreatePacientesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pacientes');
+        Schema::dropIfExists('datos_parentales');
     }
 }

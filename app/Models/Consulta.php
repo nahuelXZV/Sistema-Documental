@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Horario extends Model
+class Consulta extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'dia',
-        'hora_fin',
-        'hora_inicio',
+        'fecha',
+        'servicio',
+        'user_id',
+        'ficha_id',
     ];
 }

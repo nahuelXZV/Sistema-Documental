@@ -4,9 +4,9 @@
     Horarios
 @endsection
 @section('action')
-    <a href="{{route('horarios.index')}}" class="hover:underline ">Horarios</a>
+    <a href="{{ route('horarios.index') }}" class="hover:underline ">Horarios</a>
 @endsection
 
 @section('content')
-  
+    @livewire('medico.horario.lw-index')
 @endsection
