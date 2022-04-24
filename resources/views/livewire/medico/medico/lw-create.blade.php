@@ -22,23 +22,7 @@
         </div>
         <div class="grid grid-cols-2 gap-4">
 
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Correo</label>
-                <input type="email" wire:model.defer="medico.email" name='email'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Email">
-                <x-jet-input-error for="medico.email" />
-            </div>
 
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Telefono</label>
-                <input type="text" wire:model.defer="medico.telefono" name='telefono'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Telefono">
-                <x-jet-input-error for="medico.telefono" />
-            </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Sexo</label>
                 <select wire:model.defer='medico.sexo' name='sexo'
@@ -50,9 +34,32 @@
                 </select>
                 <x-jet-input-error for="medico.sexo" />
             </div>
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Telefono</label>
+                <input type="text" wire:model.defer="medico.telefono" name='telefono'
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Telefono">
+                <x-jet-input-error for="medico.telefono" />
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Correo</label>
+                <input type="email" wire:model.defer="medico.email" name='email'
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Email">
+                <x-jet-input-error for="medico.email" />
+            </div>
 
             <div class="form-group mb-6">
-
+                <div class="form-group mb-6">
+                    <label for="exampleInputEmail2"
+                        class="form-label inline-block mb-2 text-gray-700">Contraseña</label>
+                    <input type="password" wire:model.defer="medico.password" name='password'
+                        class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        placeholder="Contraseña">
+                    <x-jet-input-error for="medico.password" />
+                </div>
             </div>
         </div>
 
@@ -67,7 +74,8 @@
                 </label>
             @endforeach
         </div>
-        
+
+
         <div
             class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start p-4 border-t border-gray-200 rounded-b-md">
             <a type="button" href="{{ route('medicos.index') }}"

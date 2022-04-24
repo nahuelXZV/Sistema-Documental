@@ -12,5 +12,15 @@ class Reserva extends Model
         'fecha_creacion',
         'fecha_reserva',
         'ficha_id',
+        'user_id',
     ];
+
+    public function ficha()
+    {
+        return $this->belongsTo(Ficha::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

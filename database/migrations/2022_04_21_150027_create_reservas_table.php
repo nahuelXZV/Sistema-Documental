@@ -18,7 +18,9 @@ class CreateReservasTable extends Migration
             $table->date('fecha_creacion');
             $table->date('fecha_reserva');
             $table->unsignedBigInteger('ficha_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('ficha_id')->references('id')->on('fichas');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

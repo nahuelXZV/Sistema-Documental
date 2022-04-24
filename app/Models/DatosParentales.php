@@ -14,7 +14,6 @@ class DatosParentales extends Model
         'apellido',
         'tipo_documento',
         'documento',
-        'telefono',
         'edad',
         'ocupacion',
         'estado_civil',

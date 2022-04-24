@@ -1,0 +1,8 @@
+<div>
+
+
+    {{ $auditoria }}
+
+
+
+</div>

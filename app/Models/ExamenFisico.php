@@ -16,7 +16,6 @@ class ExamenFisico extends Model
         'peso',
         'talla',
         'imc',
-        'circunferencia_abdominal',
         'estado_nutricional',
         'otros',
         'paciente_id',

@@ -9,13 +9,11 @@ class Residencia extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'pais',
         'departamento',
-        'municipio',
         'barrio',
-        'area',
         'direccion',
         'nro_casa',
-        'telefono',
         'referencia',
         'paciente_id',
     ];

@@ -8,5 +8,5 @@
 @endsection
 
 @section('content')
-    @livewire('medico.horario.lw-edit')
+    @livewire('medico.horario.lw-edit',['id' => $id])
 @endsection

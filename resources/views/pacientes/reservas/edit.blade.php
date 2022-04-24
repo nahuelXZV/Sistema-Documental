@@ -4,9 +4,9 @@
     Reservas
 @endsection
 @section('action')
-    <a href="{{route('reservas.index')}}" class="hover:underline ">Reservas</a>
+    <a href="{{ route('reservas.index') }}" class="hover:underline ">Reservas</a>
 @endsection
 
 @section('content')
-  
+    @livewire('paciente.reserva.lw-edit', ['id' => $id])
 @endsection

@@ -59,8 +59,7 @@ return [
     'events' => [
         'created',
         'updated',
-        'deleted',
-        'restored'
+        'deleted'
     ],
 
     /*
@@ -126,7 +125,7 @@ return [
     |
     */
 
-    'threshold' => 0,
+    'threshold' => 40,
 
     /*
     |--------------------------------------------------------------------------

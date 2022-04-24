@@ -9,9 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use OwenIt\Auditing\Auditable as AuditingAuditable;
 use Spatie\Permission\Traits\HasRoles;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements Auditable
 {
     use HasApiTokens;
     use HasFactory;
@@ -19,6 +22,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use AuditingAuditable;
 
 
     /**
@@ -64,4 +68,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+    public function medico()
+    {
+        return $this->belongsTo(Medico::class);
+    }
 }

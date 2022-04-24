@@ -20,4 +20,9 @@ class Medico extends Model
     {
         return $this->belongsToMany(EspecialidadMedica::class, 'medico_especialidads', 'medico_id', 'especialidad_medica_id');
     }
+
+    public function horarios()
+    {
+        return $this->belongsToMany(Horario::class, 'medico_horarios', 'medico_id', 'horario_id');
+    }
 }

@@ -13,4 +13,17 @@ class Ficha extends Model
         'especialidad_id',
         'horario_id',
     ];
+
+    public function medico()
+    {
+        return $this->belongsTo(Medico::class);
+    }
+    public function especialidad()
+    {
+        return $this->belongsTo(EspecialidadMedica::class);
+    }
+    public function horario()
+    {
+        return $this->belongsTo(Horario::class);
+    }
 }

@@ -20,12 +20,11 @@ class CreateDatosParentalesTable extends Migration
             $table->string('apellido');
             $table->string('tipo_documento');
             $table->string('documento');
-            $table->string('telefono');
             $table->string('edad');
             $table->string('ocupacion');
             $table->string('estado_civil');
             $table->string('nivel_educativo');
-            $table->text('otros');
+            $table->text('otros')->nullable();
             $table->unsignedBigInteger('paciente_id');
             $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->timestamps();

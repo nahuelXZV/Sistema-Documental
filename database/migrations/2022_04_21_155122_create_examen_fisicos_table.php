@@ -22,9 +22,8 @@ class CreateExamenFisicosTable extends Migration
             $table->string('peso');
             $table->string('talla');
             $table->string('imc');
-            $table->string('circunferencia_abdominal');
             $table->string('estado_nutricional');
-            $table->text('otros');
+            $table->text('otros')->nullable();
             $table->unsignedBigInteger('paciente_id');
             $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->timestamps();

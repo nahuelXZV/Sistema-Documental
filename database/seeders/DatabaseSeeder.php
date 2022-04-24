@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Clinica;
+use App\Models\Medico;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

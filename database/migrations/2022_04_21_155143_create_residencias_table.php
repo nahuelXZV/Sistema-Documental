@@ -16,12 +16,10 @@ class CreateResidenciasTable extends Migration
         Schema::create('residencias', function (Blueprint $table) {
             $table->id();
             $table->string('departamento');
-            $table->string('municipio');
+            $table->string('pais');
             $table->string('barrio');
-            $table->string('area');
             $table->string('direccion');
             $table->string('nro_casa');
-            $table->string('telefono');
             $table->text('referencia');
             $table->unsignedBigInteger('paciente_id');
             $table->foreign('paciente_id')->references('id')->on('pacientes');

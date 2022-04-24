@@ -5,10 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\administracion\UsuarioController;
 use App\Http\Controllers\medico\ClinicaController;
 use App\Http\Controllers\administracion\RoleController;
+use App\Http\Controllers\medico\atendidosController;
 use App\Http\Controllers\medico\ConsultasController;
 use App\Http\Controllers\medico\EspecialidadesController;
 use App\Http\Controllers\medico\HorarioController;
 use App\Http\Controllers\medico\MedicoController;
+use App\Http\Controllers\medico\MedicoHorario;
+use App\Http\Controllers\paciente\BitacoraController;
+use App\Http\Controllers\paciente\ConsultaController;
+use App\Http\Controllers\paciente\HistorialController;
 use App\Http\Controllers\paciente\ReservasController;
 
 /*
@@ -75,4 +80,26 @@ Route::middleware([
     Route::get('/reservas', [ReservasController::class, 'index'])->name('reservas.index');
     Route::get('/reservas/create', [ReservasController::class, 'create'])->name('reservas.create');
     Route::get('/reservas/edit/{id}', [ReservasController::class, 'edit'])->name('reservas.edit');
+
+    // Route Medico Horario
+    Route::get('/medico_horario', [MedicoHorario::class, 'index'])->name('medico_horario.index');
+    Route::get('/medico_horario/create', [MedicoHorario::class, 'create'])->name('medico_horario.create');
+    Route::get('/medico_horario/edit/{id}', [MedicoHorario::class, 'edit'])->name('medico_horario.edit');
+
+    // Route historial
+    Route::get('/historial/show/{id}', [HistorialController::class, 'index'])->name('historial.index');
+    Route::get('/historial/create/{id}/{reservaid}', [HistorialController::class, 'create'])->name('historial.create');
+    Route::get('/historial/edit/{id}', [HistorialController::class, 'edit'])->name('historial.edit');
+
+    // Route consultas
+    Route::get('/consultas_historial', [ConsultaController::class, 'index'])->name('consultas_historial.index');
+    Route::get('/consultas_historial/create', [ConsultaController::class, 'create'])->name('consultas_historial.create');
+    Route::get('/consultas_historial/edit/{id}', [ConsultaController::class, 'edit'])->name('consultas_historial.edit');
+    Route::get('/consultas_historial/show/{id}', [ConsultaController::class, 'show'])->name('consultas_historial.show');
+
+    // Route bitacora
+    Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
+
+    // Route atendidos
+    Route::get('/atendidos', [atendidosController::class, 'index'])->name('atendidos.index');
 });
