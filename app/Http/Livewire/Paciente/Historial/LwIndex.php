@@ -18,7 +18,7 @@ class LwIndex extends Component
     public function render()
     {
         $residencia = Residencia::find($this->paciente->id)->first();
-        $fisicos = ExamenFisico::find($this->paciente->id)->first();
+        $fisicos = ExamenFisico::where('paciente_id', $this->paciente->id)->first();
         $parentales = DatosParentales::where('paciente_id', $this->paciente->id)
             ->where('vinculo', 'Padre')->first();
         $maternales = DatosParentales::where('paciente_id', $this->paciente->id)
