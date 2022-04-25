@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:admi']);
+    }
     public function index()
     {
         return view('administracion.role_permiso.role');

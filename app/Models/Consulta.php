@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Auditable as AuditingAuditable;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Consulta extends Model
+class Consulta extends Model implements Auditable
 {
     use HasFactory;
+    use AuditingAuditable;
     protected $fillable = [
         'fecha',
         'paciente_id',
@@ -18,7 +21,7 @@ class Consulta extends Model
     {
         return $this->belongsTo(Paciente::class);
     }
-    
+
     public function ficha()
     {
         return $this->belongsTo(Ficha::class);

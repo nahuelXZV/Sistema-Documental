@@ -9,12 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use OwenIt\Auditing\Auditable as AuditingAuditable;
 use Spatie\Permission\Traits\HasRoles;
-use OwenIt\Auditing\Contracts\Auditable;
 
 
-class User extends Authenticatable implements Auditable
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
@@ -22,8 +20,6 @@ class User extends Authenticatable implements Auditable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-    use AuditingAuditable;
-
 
     /**
      * The attributes that are mass assignable.

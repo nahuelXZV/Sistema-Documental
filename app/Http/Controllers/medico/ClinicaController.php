@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class ClinicaController extends Controller
 {
 
-
+    public function __construct()
+    {
+        $this->middleware(['role:admi']);
+    }
     public function  index()
     {
         return view('medico.clinica.clinica');

@@ -39,7 +39,7 @@ class LwCreate extends Component
             'tipo_user' => 'medico',
             'medico_id' => $medico->id,
             'paciente_id' => null,
-        ])->assignRole('Médico');;
+        ])->assignRole('medico');;
         foreach ($this->especialidadL as $especialidad) {
             MedicoEspecialidad::create([
                 'medico_id' => $medico->id,

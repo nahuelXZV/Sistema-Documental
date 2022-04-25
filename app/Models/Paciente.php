@@ -27,4 +27,9 @@ class Paciente extends Model implements Auditable
         'año_cursado',
         'situacion_laboral',
     ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

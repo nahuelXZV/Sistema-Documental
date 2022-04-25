@@ -15,14 +15,14 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $admi = Role::create(['name' => 'Administrador']);
-        $paciente = Role::create(['name' => 'Paciente']);
-        $medico = Role::create(['name' => 'Médico']);
+        $admi = Role::create(['name' => 'admi']);
+        $paciente = Role::create(['name' => 'paciente']);
+        $medico = Role::create(['name' => 'medico']);
 
         Permission::create([
-            'name' => 'pacientes',
+            'name' => 'usuarios',
             'descripcion' => 'Gestionar pacientes'
-        ])->syncRoles([$admi, $medico]);
+        ])->syncRoles([$admi]);
         Permission::create([
             'name' => 'clinica',
             'descripcion' => 'Gestionar clínica'
@@ -30,7 +30,7 @@ class RoleSeeder extends Seeder
         Permission::create([
             'name' => 'medicos',
             'descripcion' => 'Gestionar médicos'
-        ])->syncRoles([$admi, $medico]);
+        ])->syncRoles([$admi]);
         Permission::create([
             'name' => 'especialidades',
             'descripcion' => 'Gestionar especialidades'
@@ -38,6 +38,6 @@ class RoleSeeder extends Seeder
         Permission::create([
             'name' => 'horarios',
             'descripcion' => 'Gestionar horarios'
-        ])->syncRoles([$admi, $medico]);
+        ])->syncRoles([$admi]);
     }
 }

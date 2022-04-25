@@ -97,9 +97,6 @@ Route::middleware([
     Route::get('/consultas_historial/edit/{id}', [ConsultaController::class, 'edit'])->name('consultas_historial.edit');
     Route::get('/consultas_historial/show/{id}', [ConsultaController::class, 'show'])->name('consultas_historial.show');
 
-    // Route bitacora
-    Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
-
     // Route atendidos
     Route::get('/atendidos', [atendidosController::class, 'index'])->name('atendidos.index');
 });

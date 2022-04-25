@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 
 class BitacoraController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        return view('pacientes.bitacora.bitacora');
+        $this->middleware(['role:medico']);
+    }
+    public function index($id)
+    {
+        return view('pacientes.bitacora.bitacora', compact('id'));
     }
 }

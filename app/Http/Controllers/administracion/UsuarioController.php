@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:admi']);
+    }
     public function index()
     {
         return view('administracion.usuarios.usuario');

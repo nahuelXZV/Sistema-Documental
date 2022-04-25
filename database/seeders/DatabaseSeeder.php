@@ -26,12 +26,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'nahuel@gmail.com',
             'password' => bcrypt('12345678'),
             'tipo_user' => 'admi',
-        ])->assignRole('Administrador');
+        ])->assignRole('admi');
         User::create([
             'name' => 'Sofia Mendoza',
             'email' => 'sofia@gmail.com',
             'password' => bcrypt('12345678'),
             'tipo_user' => 'medico',
-        ])->assignRole('Médico');
+        ])->assignRole('medico');
     }
 }

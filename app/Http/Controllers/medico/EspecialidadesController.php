@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class EspecialidadesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:admi']);
+    }
     public function index()
     {
         return view('medico.especialidades.especialidades');

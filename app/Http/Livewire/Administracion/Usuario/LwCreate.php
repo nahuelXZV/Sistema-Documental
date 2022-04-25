@@ -32,7 +32,7 @@ class LwCreate extends Component
             'tipo_user' => $this->tipo_user,
             'id_medico' => $this->id_medico,
             'id_user' => $this->id_user,
-        ]);
+        ])->assignRole($this->tipo_user);
         return redirect()->route('usuario.index');
     }
 

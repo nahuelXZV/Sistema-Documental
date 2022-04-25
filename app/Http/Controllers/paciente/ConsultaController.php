@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:medico']);
+    }
     public function index()
     {
         return view('pacientes.consulta.consultas');
