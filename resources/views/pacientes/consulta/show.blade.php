@@ -4,7 +4,7 @@
     Consultas
 @endsection
 @section('action')
-    <a href="{{ route('consultas_historial.index') }}" class="hover:underline ">Consultas</a>
+    <a href="{{ route('consultas.index') }}" class="hover:underline ">Consulta</a>
 @endsection
 
 @section('content')

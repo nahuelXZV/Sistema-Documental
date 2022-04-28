@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Paciente\Historial;
 
 use App\Models\Consulta;
 use App\Models\Paciente;
+use App\Models\Reserva;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,8 +15,8 @@ class LwRealizadas extends Component
     public $pagination = 10;
     public $attribute = '';
     public $type = 'fecha';
-    public $sort = 'fecha';
-    public $direction = 'asc';
+    public $sort = 'created_at';
+    public $direction = 'desc';
     //Metodo de reinicio de buscador
     public function updatingAttribute()
     {
@@ -40,6 +41,7 @@ class LwRealizadas extends Component
     {
         $this->paciente = Paciente::find($id);
     }
+
 
     public function render()
     {

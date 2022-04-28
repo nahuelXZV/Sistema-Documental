@@ -16,8 +16,6 @@ class CreateAntecedentesPatologicosTable extends Migration
         Schema::create('antecedentes_patologicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->unsignedBigInteger('anamnesis_id');
-            $table->foreign('anamnesis_id')->references('id')->on('anamneses');
             $table->timestamps();
         });
     }

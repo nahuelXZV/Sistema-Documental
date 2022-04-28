@@ -79,10 +79,10 @@
                             Especialidad
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Dia
+                            Fecha
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Fecha
+                            Dia
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Hora

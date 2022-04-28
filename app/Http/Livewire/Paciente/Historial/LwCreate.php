@@ -108,11 +108,13 @@ class LwCreate extends Component
 
     public function consulta($id)
     {
-        Consulta::create([
+        $consulta = Consulta::create([
             'fecha' => now(),
             'paciente_id' => $id,
             'ficha_id' => $this->reserva->ficha_id,
         ]);
+        $this->reserva->consulta_id = $consulta->id;
+        $this->reserva->update();
     }
 
     public function limpiar()

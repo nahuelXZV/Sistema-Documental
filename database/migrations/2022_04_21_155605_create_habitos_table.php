@@ -18,7 +18,6 @@ class CreateHabitosTable extends Migration
             $table->text('alimenticio');
             $table->text('defecatorio');
             $table->text('urinario');
-            $table->text('sueño');
             $table->text('actividad_fisica');
             $table->string('tiempo');
             $table->string('frecuencia');

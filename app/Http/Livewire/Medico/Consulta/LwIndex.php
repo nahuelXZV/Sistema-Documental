@@ -47,6 +47,15 @@ class LwIndex extends Component
         if ($reserva->user->paciente_id == null) {
             return redirect()->route('historial.create', [$reserva->user_id, $reserva->id]);
         } else {
+            if ($reserva->consulta_id == null) {
+                $consulta = Consulta::create([
+                    'fecha' => now(),
+                    'paciente_id' => $reserva->user->paciente_id,
+                    'ficha_id' => $reserva->ficha_id,
+                ]);
+                $reserva->consulta_id = $consulta->id;
+                $reserva->update();
+            }
             return redirect()->route('historial.index', $reserva->user->paciente_id);
         }
     }

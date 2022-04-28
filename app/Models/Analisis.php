@@ -13,7 +13,6 @@ class Analisis extends Model implements Auditable
     use AuditingAuditable;
     
     protected $fillable = [
-        'nombre',
         'descripcion',
         'tipo',
         'fecha',

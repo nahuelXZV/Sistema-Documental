@@ -8,7 +8,5 @@
 @endsection
 
 @section('content')
-    <div>
-        <p class="text-bold">Bienvenido</p>
-    </div>
+    <img src="https://cdn.pixabay.com/photo/2021/11/20/03/35/doctor-6810776__340.png" class="w-full h-auto" alt="..." />
 @endsection

@@ -19,8 +19,10 @@ class CreateReservasTable extends Migration
             $table->date('fecha_reserva');
             $table->unsignedBigInteger('ficha_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('consulta_id')->nullable();
             $table->foreign('ficha_id')->references('id')->on('fichas');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('consulta_id')->references('id')->on('consultas');
             $table->timestamps();
         });
     }

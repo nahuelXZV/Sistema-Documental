@@ -15,7 +15,7 @@ class LwIndex extends Component
     public $sort = 'nombre';
     public $direction = 'asc';
 
-
+ 
     //Metodo de reinicio de buscador
     public function updatingAttribute()
     {

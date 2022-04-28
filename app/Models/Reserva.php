@@ -13,6 +13,7 @@ class Reserva extends Model
         'fecha_reserva',
         'ficha_id',
         'user_id',
+        'consulta_id'
     ];
 
     public function ficha()

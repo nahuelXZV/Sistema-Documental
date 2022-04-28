@@ -12,4 +12,9 @@ class AnamnesisPatologicos extends Model
         'antecedentes_patologicos_id',
         'anamnesis_id',
     ];
+
+    public function antecedentes_patologicos()
+    {
+        return $this->belongsTo(AntecedentesPatologicos::class);
+    }
 }

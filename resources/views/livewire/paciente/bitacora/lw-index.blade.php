@@ -91,6 +91,9 @@
                             Evento
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            IP
+                        </th>
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Antiguo valor
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
@@ -106,15 +109,23 @@
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $auditoria->user->medico->nombre }} {{ $auditoria->user->medico->apellido }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $auditoria->event }}</td>
+                                @if ($auditoria->event == 'updated')
+                                    Actualizó
+                                @else
+                                    Eliminó
+                                @endif
+
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $auditoria->ip_address }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 @foreach ($auditoria->old_values as $value)
-                                    - {{ $value }}
+                                    {{ $value }} <br>
                                 @endforeach
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 @foreach ($auditoria->new_values as $value)
-                                    - {{ $value }} <br>
+                                    {{ $value }} <br>
                                 @endforeach
                             </td>
                         </tr>

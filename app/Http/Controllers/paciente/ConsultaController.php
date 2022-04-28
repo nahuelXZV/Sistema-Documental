@@ -25,6 +25,6 @@ class ConsultaController extends Controller
     }
     public function show($id)
     {
-        return view('pacientes.consulta.shoq', compact('id'));
+        return view('pacientes.consulta.show', compact('id'));
     }
 }

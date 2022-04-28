@@ -114,7 +114,7 @@
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                        <a href="#"
+                                        <a href="{{ route('consultas_historial.show', $consulta->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

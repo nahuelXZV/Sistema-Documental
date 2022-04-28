@@ -15,7 +15,6 @@ class CreateAnalisesTable extends Migration
     {
         Schema::create('analises', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
             $table->text('descripcion');
             $table->string('tipo');
             $table->string('fecha');

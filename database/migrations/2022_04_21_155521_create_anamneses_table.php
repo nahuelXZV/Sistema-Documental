@@ -15,11 +15,9 @@ class CreateAnamnesesTable extends Migration
     {
         Schema::create('anamneses', function (Blueprint $table) {
             $table->id();
-            $table->string('datos_referidos');
             $table->text('motivo_ingreso');
             $table->text('motivo_consulta');
             $table->text('antecedentes_actuales');
-            $table->text('detalles_enfermedad');
             $table->unsignedBigInteger('consulta_id');
             $table->foreign('consulta_id')->references('id')->on('consultas');
             $table->timestamps();

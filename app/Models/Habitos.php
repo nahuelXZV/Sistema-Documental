@@ -12,7 +12,6 @@ class Habitos extends Model
         'alimenticio',
         'defecatorio',
         'urinario',
-        'sueño',
         'actividad_fisica',
         'tiempo',
         'frecuencia',

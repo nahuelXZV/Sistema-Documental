@@ -12,8 +12,8 @@ class Documentos extends Model implements Auditable
     use HasFactory;
     use AuditingAuditable;
     protected $fillable = [
+        'dir',
         'nombre',
-        'descripcion',
         'tipo',
         'analisis_id',
     ];
