@@ -15,6 +15,7 @@ use App\Http\Controllers\paciente\BitacoraController;
 use App\Http\Controllers\paciente\ConsultaController;
 use App\Http\Controllers\paciente\HistorialController;
 use App\Http\Controllers\paciente\ReservasController;
+use App\Http\Controllers\pdf\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,4 +100,11 @@ Route::middleware([
 
     // Route atendidos
     Route::get('/atendidos', [atendidosController::class, 'index'])->name('atendidos.index');
+
+    // Route pdfs
+    Route::get('/pdfs/historial/{id}', [PdfController::class, 'historial'])->name('pdfs.historial');
+    Route::get('/pdfs/consulta/all/{id}', [PdfController::class, 'all'])->name('pdfs.all');
+    Route::get('/pdfs/consulta/datos/{id}', [PdfController::class, 'datos'])->name('pdfs.datos');
+    Route::get('/pdfs/consulta/diagnostico/{id}', [PdfController::class, 'diagnostico'])->name('pdfs.diagnostico');
+    Route::get('/pdfs/consulta/analisis/{id}', [PdfController::class, 'analisis'])->name('pdfs.analisis');
 });

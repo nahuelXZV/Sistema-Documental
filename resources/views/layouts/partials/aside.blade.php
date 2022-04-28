@@ -20,8 +20,7 @@
                         </svg>
                     </button>
                     <a href="/" class="text-xl font-bold flex items-center lg:ml-2.5">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZBAv-w7bwZw4KDWH9-RTnK56bsNpO-aqSUg&usqp=CAU"
-                            class="h-10 w-auto mr-0.5" alt="Logo Clinica Salud">
+                        <img src="{{ asset('Logo.png') }}" class="h-10 w-auto mr-0.5" alt="Logo Clinica Salud">
                         <span class="self-center whitespace-nowrap">Clínica de Salud</span>
                     </a>
                 </div>

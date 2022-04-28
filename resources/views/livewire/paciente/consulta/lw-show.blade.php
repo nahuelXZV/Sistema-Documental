@@ -8,10 +8,35 @@
                     Iniciar consulta
                 </a>
             @else
-                <a type="button" href="#"
-                    class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                    Descargar
-                </a>
+                <button
+                    class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                    type="button" id="dropdownMenuButton9" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left                py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding                border-none "
+                    aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            href="#">Descargar Todo</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            href="#">Descargar Datos generales</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            href="#">Descargar Diagnostico y tratamiento</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            href="#">Descargar Analisis</a>
+                    </li>
+                </ul>
             @endif
         </div>
     </x-header-multi>

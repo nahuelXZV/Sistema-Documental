@@ -126,8 +126,7 @@ class LwEdit extends Component
 
         $reserva = Reserva::where('consulta_id', $this->consulta->id)->first();
         $reserva->delete();
-
-        return redirect()->route('consultas.index');
+        return redirect()->route('historial.index', $this->consulta->paciente_id);
     }
 
     public function render()
