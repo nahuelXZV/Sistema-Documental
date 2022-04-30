@@ -16,7 +16,12 @@ use App\Http\Controllers\paciente\ConsultaController;
 use App\Http\Controllers\paciente\HistorialController;
 use App\Http\Controllers\paciente\ReservasController;
 use App\Http\Controllers\pdf\PdfController;
-
+use Fpdf\Fpdf;
+use App\Models\Clinica;
+use App\Models\DatosParentales;
+use App\Models\ExamenFisico;
+use App\Models\Paciente;
+use App\Models\Residencia;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
