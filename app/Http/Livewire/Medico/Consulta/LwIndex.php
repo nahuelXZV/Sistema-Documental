@@ -83,7 +83,7 @@ class LwIndex extends Component
                     ->select('reservas.*')
                     ->where('especialidad_medicas.nombre', 'like', '%' . $this->attribute . '%')
                     ->where('medicos.id', '=', Auth()->user()->medico->id)
-                    ->orderBy($this->sort, $this->direction)
+                    ->orderBy('reservas.fecha_reserva', $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
@@ -91,10 +91,11 @@ class LwIndex extends Component
                     ->join('medicos', 'fichas.medico_id', '=', 'medicos.id')
                     ->select('reservas.*')
                     ->where('medicos.id', '=', Auth()->user()->medico->id)
-                    ->orderBy($this->sort, $this->direction)
+                    ->orderBy('reservas.fecha_reserva', $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.medico.consulta.lw-index', compact('consultas'));
+        $fecha = date_create('now')->format('Y-m-d');
+        return view('livewire.medico.consulta.lw-index', compact('consultas', 'fecha'));
     }
 }
