@@ -24,7 +24,7 @@ class PdfController extends Controller
         $examen = ExamenFisico::find($id);
         $fecha = now();
         $pdf = \PDF::loadView('pdf.historial', compact('paciente', 'clinica', 'fecha', 'parentales', 'residencia', 'examen', 'maternales'));
-        return $pdf->download('historial.pdf');
+        return $pdf->stream('historial.pdf');
     }
 
     // show consulta
