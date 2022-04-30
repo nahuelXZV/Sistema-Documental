@@ -104,7 +104,7 @@ class LwEdit extends Component
                     $documento = new Documentos();
                     $documento->nombre = $imagen->getClientOriginalName();
                     $documento->tipo = $imagen->extension();
-                    $documento->dir = 'storage/' . $imagen->store('documentos', 'public');
+                    $documento->dir = 'https://bnzv-clinica-salud-s3.s3.us-east-1.amazonaws.com/' . $imagen->store('documentos', 's3');
                     $documento->analisis_id = $analisis->id;
                     $documento->save();
                 }
@@ -117,7 +117,7 @@ class LwEdit extends Component
                     $documento = new Documentos();
                     $documento->nombre = $pdf->getClientOriginalName();
                     $documento->tipo = $pdf->extension();
-                    $documento->dir = 'storage/' . $pdf->store('documentos', 'public');
+                    $documento->dir = 'https://bnzv-clinica-salud-s3.s3.us-east-1.amazonaws.com/' .  $pdf->store('documentos', 's3');
                     $documento->analisis_id = $analisis->id;
                     $documento->save();
                 }

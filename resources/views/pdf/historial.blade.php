@@ -115,9 +115,10 @@
                             </td>
 
                             <td>
-                                Invoice #: 123<br />
-                                Created: January 1, 2015<br />
-                                Due: February 1, 2015
+                                {{ $clinica->nombre }} #: {{ $clinica->direccion }}<br />
+                                Ciudad: {{ $clinica->ciudad }}<br />
+                                Telefono: {{ $clinica->telefono }} <br>
+                                Creado: {{ $fecha }}
                             </td>
                         </tr>
                     </table>
@@ -129,15 +130,15 @@
                     <table>
                         <tr>
                             <td>
-                                Sparksuite, Inc.<br />
-                                12345 Sunny Road<br />
-                                Sunnyville, CA 12345
+                                Apellidos y Nombres<br />
+                                Documento<br />
+                                Telefono
                             </td>
 
                             <td>
-                                Acme Corp.<br />
-                                John Doe<br />
-                                john@example.com
+                                {{ $paciente->nombre }} <br />
+                                {{ $paciente->documento }}<br />
+                                {{ $paciente->telefono }}
                             </td>
                         </tr>
                     </table>
@@ -145,46 +146,282 @@
             </tr>
 
             <tr class="heading">
-                <td>Payment Method</td>
+                <td>Datos generales</td>
 
-                <td>Check #</td>
+                <td></td>
             </tr>
 
-            <tr class="details">
-                <td>Check</td>
+            <tr class="item">
+                <td>Apellidos y Nombres: {{ $paciente->nombre }}</td>
 
-                <td>1000</td>
+                <td></td>
             </tr>
+            <tr class="item">
+                <td>Fecha de nacimiento: {{ $paciente->fecha_nacimiento }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Tipo de documento: {{ $paciente->tipo_documento }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Documento: {{ $paciente->documento }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Telefono: {{ $paciente->telefono }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Sexo: {{ $paciente->sexo }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Estado civil: {{ $paciente->estado_civil }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Situacion laboral: {{ $paciente->situacion_laboral }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="heading">
+                <td>Lugar de nacimiento</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Pais: {{ $paciente->pais }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Departamento: {{ $paciente->departamento }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Nacionalidad: {{ $paciente->nacionalidad }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Nivel educativo</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Nivel de estudio: {{ $paciente->nivel_educativo }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Año cursado: {{ $paciente->año_cursado }}</td>
+
+                <td></td>
+            </tr>
+
 
             <tr class="heading">
-                <td>Item</td>
+                <td>Datos residenciales</td>
 
-                <td>Price</td>
-            </tr>
-
-            <tr class="item">
-                <td>Website design</td>
-
-                <td>$300.00</td>
-            </tr>
-
-            <tr class="item">
-                <td>Hosting (3 months)</td>
-
-                <td>$75.00</td>
-            </tr>
-
-            <tr class="item last">
-                <td>Domain name (1 year)</td>
-
-                <td>$10.00</td>
-            </tr>
-
-            <tr class="total">
                 <td></td>
-
-                <td>Total: $385.00</td>
             </tr>
+
+            <tr class="item">
+                <td>Pais: {{ $residencia->pais }}</td>
+
+                <td></td>
+            </tr>
+
+            <tr class="item">
+                <td>Departamento: {{ $residencia->departamento }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Barrio: {{ $residencia->barrio }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Dirección: {{ $residencia->direccion }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Nro de casa: {{ $residencia->nro_casa }}</td>
+
+                <td></td>
+            </tr>
+            <tr class="item">
+                <td>Referencia: {{ $residencia->referencia }}</td>
+
+                <td></td>
+            </tr>
+
+            @if ($parentales)
+                <tr class="heading">
+                    <td>Datos del padre</td>
+
+                    <td></td>
+                </tr>
+
+                <tr class="item">
+                    <td>Apellido y Nombre: {{ $parentales->apellido }} {{ $parentales->nombre }}</td>
+
+                    <td></td>
+                </tr>
+
+                <tr class="item">
+                    <td>Edad: {{ $parentales->edad }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Tipo de documento: {{ $parentales->tipo_documento }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Documento: {{ $parentales->documento }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Estado civil: {{ $parentales->estado_civil }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Nivel de estudio: {{ $parentales->nivel_educativo }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Ocupacion: {{ $parentales->ocupacion }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Otros: {{ $residencia->otros }}</td>
+
+                    <td></td>
+                </tr>
+            @endif
+
+            @if ($maternales)
+                <tr class="heading">
+                    <td>Datos de la madre</td>
+
+                    <td></td>
+                </tr>
+
+                <tr class="item">
+                    <td>Apellido y Nombre: {{ $maternales->apellido }} {{ $maternales->nombre }}</td>
+
+                    <td></td>
+                </tr>
+
+                <tr class="item">
+                    <td>Edad: {{ $maternales->edad }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Tipo de documento: {{ $maternales->tipo_documento }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Documento: {{ $maternales->documento }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Estado civil: {{ $maternales->estado_civil }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Nivel de estudio: {{ $maternales->nivel_educativo }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Ocupacion: {{ $maternales->ocupacion }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Otros: {{ $maternales->otros }}</td>
+
+                    <td></td>
+                </tr>
+            @endif
+
+            @if ($examen)
+                <tr class="heading">
+                    <td>Examen Físico</td>
+
+                    <td></td>
+                </tr>
+
+                <tr class="item">
+                    <td>Pulsos: {{ $examen->pulsos }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>FR: {{ $examen->FR }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>FC: {{ $examen->FC }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>T° Axilar: {{ $examen->t_axilar }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Peso: {{ $examen->peso }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Talla: {{ $examen->talla }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>IMC: {{ $examen->imc }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Estado Nutricional: {{ $examen->estado_nutricional }}</td>
+
+                    <td></td>
+                </tr>
+                <tr class="item">
+                    <td>Otros datos de interes: {{ $examen->otros }}</td>
+
+                    <td></td>
+                </tr>
+            @endif
+
+
+
         </table>
     </div>
 </body>

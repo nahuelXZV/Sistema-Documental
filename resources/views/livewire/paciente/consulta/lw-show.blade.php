@@ -268,7 +268,7 @@
                 <h1 for="exampleInputEmail2" class="form-label inline-block font-bold mb-2 mt-4 text-black">
                     Archivos PDF</h1><br>
                 @foreach ($pdfs as $pdf)
-                    <a href="{{ asset($pdf->dir) }}" target="_blank">{{ $pdf->nombre }}</a> <br>
+                    <a href="{{ $pdf->dir }}" target="_blank">{{ $pdf->nombre }}</a> <br>
                 @endforeach
                 <h1 for="exampleInputEmail2" class="form-label inline-block font-bold mb-2 mt-4 text-black">
                     Archivos de imagen</h1><br>
@@ -277,8 +277,7 @@
                         <div class="ml-8">
                             <label class="form-label mr-4 inline-block text-gray-900">{{ $imagen->nombre }}
                             </label><br>
-                            <img src="{{ asset($imagen->dir) }}" class="img-fluid" alt="" height="200"
-                                width="300" />
+                            <img src="{{ $imagen->dir }}" class="img-fluid" alt="" height="200" width="300" />
                         </div>
                     @endforeach
                 </div>
