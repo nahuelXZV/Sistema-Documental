@@ -102,7 +102,8 @@ Route::middleware([
     Route::get('/atendidos', [atendidosController::class, 'index'])->name('atendidos.index');
 
     // Route pdfs
-    Route::get('/pdfs/historial/{id}', [HistorialController::class, 'historial'])->name('pdfs.historial');
+    //Route::get('/pdf/pacientes', 'App\Http\Controllers\admin\PDFController@PDFPacientes')->name('admin.PDF.pacientes');
+    Route::get('/pdfs/historial/{id}', 'App\Http\Controllers\pdf\PdfController@historial')->name('pdfs.historial');
     Route::get('/pdfs/consulta/all/{id}', [PdfController::class, 'all'])->name('pdfs.all');
     Route::get('/pdfs/consulta/datos/{id}', [PdfController::class, 'datos'])->name('pdfs.datos');
     Route::get('/pdfs/consulta/diagnostico/{id}', [PdfController::class, 'diagnostico'])->name('pdfs.diagnostico');
