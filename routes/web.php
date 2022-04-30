@@ -15,6 +15,7 @@ use App\Http\Controllers\paciente\BitacoraController;
 use App\Http\Controllers\paciente\ConsultaController;
 use App\Http\Controllers\paciente\HistorialController;
 use App\Http\Controllers\paciente\ReservasController;
+use App\Http\Controllers\pdf\PdfConsultaController;
 use App\Http\Controllers\pdf\PdfController;
 use Fpdf\Fpdf;
 use App\Models\Clinica;
@@ -107,10 +108,9 @@ Route::middleware([
     Route::get('/atendidos', [atendidosController::class, 'index'])->name('atendidos.index');
 
     // Route pdfs
-    //Route::get('/pdf/pacientes', 'App\Http\Controllers\admin\PDFController@PDFPacientes')->name('admin.PDF.pacientes');
     Route::get('/pdfs/historial/{id}', 'App\Http\Controllers\pdf\PdfController@historial')->name('pdfs.historial');
-    Route::get('/pdfs/consulta/all/{id}', [PdfController::class, 'all'])->name('pdfs.all');
-    Route::get('/pdfs/consulta/datos/{id}', [PdfController::class, 'datos'])->name('pdfs.datos');
-    Route::get('/pdfs/consulta/diagnostico/{id}', [PdfController::class, 'diagnostico'])->name('pdfs.diagnostico');
-    Route::get('/pdfs/consulta/analisis/{id}', [PdfController::class, 'analisis'])->name('pdfs.analisis');
+    Route::get('/pdfs/consulta/all/{id}', [PdfConsultaController::class, 'index'])->name('pdfs.all');
+    Route::get('/pdfs/consulta/datos/{id}', [PdfConsultaController::class, 'datos'])->name('pdfs.datos');
+    Route::get('/pdfs/consulta/diagnostico/{id}', [PdfConsultaController::class, 'diagnostico'])->name('pdfs.diagnostico');
+    Route::get('/pdfs/consulta/analisis/{id}', [PdfConsultaController::class, 'analisis'])->name('pdfs.analisis');
 });

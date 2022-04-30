@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Paciente\Bitacora;
 
+use App\Models\Bitacora;
 use App\Models\Paciente;
 use Livewire\Component;
 use OwenIt\Auditing\Models\Audit;
@@ -14,7 +15,7 @@ class LwIndex extends Component
     public $pagination = 10;
     public $attribute = '';
     public $type = 'id';
-    public $sort = 'id';
+    public $sort = 'created_at';
     public $direction = 'asc';
 
     //Metodo de reinicio de buscador
@@ -44,27 +45,11 @@ class LwIndex extends Component
 
     public function render()
     {
-        switch ($this->type) {
-            case 'medico':
-                $auditorias = Audit::join('users', 'users.id', '=', 'audits.user_id')
-                    ->join('medicos', 'medicos.id', '=', 'users.medico_id')
-                    ->where('medicos.nombre', 'like', '%' . $this->attribute . '%')
-                    ->where('auditable_id', $this->paciente->id)
-                    ->paginate($this->pagination);
-                break;
-            case 'evento':
-                $auditorias = Audit::where('event', 'like', '%' . $this->attribute . '%')
-                    ->where('auditable_id', $this->paciente->id)
-                    ->orderBy($this->sort, $this->direction)
-                    ->paginate($this->pagination);
-                break;
-            default:
-                $auditorias = Audit::where('created_at', 'like', '%' . $this->attribute . '%')
-                    ->where('auditable_id', $this->paciente->id)
-                    ->orderBy($this->sort, $this->direction)
-                    ->paginate($this->pagination);
-                break;
-        }
+
+        $auditorias = Bitacora::where('created_at', 'like', '%' . $this->attribute . '%')
+            ->where('paciente_id', $this->paciente->id)
+            ->orderBy($this->sort, 'desc')
+            ->paginate($this->pagination);
         return view('livewire.paciente.bitacora.lw-index', compact('auditorias'));
     }
 }

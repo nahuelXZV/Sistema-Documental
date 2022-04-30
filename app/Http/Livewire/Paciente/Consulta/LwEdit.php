@@ -6,12 +6,14 @@ use App\Models\Analisis;
 use App\Models\Anamnesis;
 use App\Models\AnamnesisPatologicos;
 use App\Models\AntecedentesPatologicos;
+use App\Models\Bitacora;
 use App\Models\CausaTraumatismo;
 use App\Models\Consulta;
 use App\Models\DiagnosticoTratamiento;
 use App\Models\Documentos;
 use App\Models\Habitos;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -74,6 +76,7 @@ class LwEdit extends Component
 
         $this->anamnesis['consulta_id'] = $this->consulta->id;
         $anamnesis = Anamnesis::create($this->anamnesis);
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo una nueva Anamnesis ', $this->consulta->paciente_id);
         if ($this->anamnesis_patologicos) {
             foreach ($this->anamnesis_patologicos as $iteam) {
                 $ap['anamnesis_id'] = $anamnesis->id;
@@ -92,10 +95,13 @@ class LwEdit extends Component
         if ($this->diagnostico) {
             $this->diagnostico['consulta_id'] = $this->consulta->id;
             DiagnosticoTratamiento::create($this->diagnostico);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo una nuevo diagnostico y tratamiento ', $this->consulta->paciente_id);
         }
         if ($this->analisis) {
             $this->analisis['consulta_id'] = $this->consulta->id;
             $analisis = Analisis::create($this->analisis);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo un nuevo analisis ', $this->consulta->paciente_id);
+
             if ($this->imagenes) {
                 $this->validate([
                     'imagenes.*' => 'required|image',
@@ -126,6 +132,7 @@ class LwEdit extends Component
 
         $reserva = Reserva::where('consulta_id', $this->consulta->id)->first();
         $reserva->delete();
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Termino la consulta: ' . $this->consulta->id, $this->consulta->paciente_id);
         return redirect()->route('historial.index', $this->consulta->paciente_id);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Paciente\Historial;
 
+use App\Models\Bitacora;
 use App\Models\Consulta;
 use App\Models\DatosParentales;
 use App\Models\ExamenFisico;
@@ -9,6 +10,7 @@ use App\Models\Paciente;
 use App\Models\Reserva;
 use App\Models\Residencia;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class LwCreate extends Component
@@ -20,7 +22,7 @@ class LwCreate extends Component
     public $maternales = [];
     public $fisicos = [];
     public $user;
-    public $reserva; 
+    public $reserva;
     public function mount($id, $reservaid)
     {
         $this->user = User::find($id);
@@ -51,11 +53,13 @@ class LwCreate extends Component
             'residencia.referencia' => 'required',
         ]);
         $paciente = Paciente::create($this->generales);
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo el historial', $paciente->id);
         $this->user->paciente_id = $paciente->id;
         $this->user->update();
         if ($this->residencia) {
             $this->residencia['paciente_id'] = $paciente->id;
             Residencia::create($this->residencia);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo la residencia', $paciente->id);
         }
         if ($this->parentales != []) {
             $this->validate([
@@ -71,6 +75,7 @@ class LwCreate extends Component
             $this->parentales['paciente_id'] = $paciente->id;
             $this->parentales['vinculo'] = 'Padre';
             DatosParentales::create($this->parentales);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo los datos parentales', $paciente->id);
         }
         if ($this->maternales != []) {
             $this->validate([
@@ -86,6 +91,7 @@ class LwCreate extends Component
             $this->maternales['paciente_id'] = $paciente->id;
             $this->maternales['vinculo'] = 'Madre';
             DatosParentales::create($this->maternales);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo los datos maternales', $paciente->id);
         }
         if ($this->fisicos != []) {
             $this->validate([
@@ -100,8 +106,10 @@ class LwCreate extends Component
             ]);
             $this->fisicos['paciente_id'] = $paciente->id;
             ExamenFisico::create($this->fisicos);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo el examen fisico', $paciente->id);
         }
         $this->consulta($paciente->id);
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Accedio', $paciente->id);
         return redirect()->route('historial.index', $paciente->id);
     }
 
@@ -113,6 +121,7 @@ class LwCreate extends Component
             'paciente_id' => $id,
             'ficha_id' => $this->reserva->ficha_id,
         ]);
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo la consulta', $this->reserva->user->paciente_id);
         $this->reserva->consulta_id = $consulta->id;
         $this->reserva->update();
     }

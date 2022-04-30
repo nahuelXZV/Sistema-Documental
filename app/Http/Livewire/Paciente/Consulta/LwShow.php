@@ -5,12 +5,14 @@ namespace App\Http\Livewire\Paciente\Consulta;
 use App\Models\Analisis;
 use App\Models\Anamnesis;
 use App\Models\AnamnesisPatologicos;
+use App\Models\Bitacora;
 use App\Models\CausaTraumatismo;
 use App\Models\Consulta;
 use App\Models\DiagnosticoTratamiento;
 use App\Models\Documentos;
 use App\Models\Habitos;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class LwShow extends Component
@@ -67,6 +69,7 @@ class LwShow extends Component
         } else {
             $this->analisis = [];
         }
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Accedio a la consulta: ' . $this->consulta->id, $this->consulta->paciente_id);
     }
 
     public function render()

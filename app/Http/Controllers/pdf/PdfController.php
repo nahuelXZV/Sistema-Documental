@@ -14,7 +14,6 @@ use Fpdf\Fpdf;
 class PdfController extends Controller
 {
     protected $fpdf;
-    //https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZBAv-w7bwZw4KDWH9-RTnK56bsNpO-aqSUg&usqp=CAU
 
     public function __construct()
     {
@@ -44,7 +43,7 @@ class PdfController extends Controller
         $this->fpdf->setX(140);
         $this->fpdf->Cell(60, 10, utf8_decode('Creado: ' . now()), 0, 0, 'R');
         // Salto de línea
-        $this->fpdf->Ln(25);
+        $this->fpdf->Ln(15);
     }
 
     public function historial($id)
@@ -60,6 +59,11 @@ class PdfController extends Controller
         $this->fpdf->SetMargins(10, 10, 10);
         $this->fpdf->SetAutoPageBreak(true, 20);
         $this->Header($clinica);
+
+        $this->fpdf->SetFont('Arial', 'B', 13);
+        $this->fpdf->Cell(190, 10, utf8_decode('Historial Clínico '), 0, 0, 'C');
+        $this->fpdf->Ln(15);
+
         $this->generales($paciente);
         $this->residencia($residencia);
         if ($parentales) {
@@ -71,7 +75,7 @@ class PdfController extends Controller
         if ($examen) {
             $this->examenFisico($examen);
         }
-        $this->fpdf->Image('Firma.png', 65, 270, 80);
+        $this->fpdf->Image('Firma.png', 55, 260, 100);
         $this->fpdf->Output();
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Medico\Consulta;
 
+use App\Models\Bitacora;
 use App\Models\Consulta;
 use App\Models\Reserva;
 use App\Models\User;
@@ -47,12 +48,14 @@ class LwIndex extends Component
         if ($reserva->user->paciente_id == null) {
             return redirect()->route('historial.create', [$reserva->user_id, $reserva->id]);
         } else {
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Accedio', $reserva->user->paciente_id);
             if ($reserva->consulta_id == null) {
                 $consulta = Consulta::create([
                     'fecha' => now(),
                     'paciente_id' => $reserva->user->paciente_id,
                     'ficha_id' => $reserva->ficha_id,
                 ]);
+                Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creó la consulta', $reserva->user->paciente_id);
                 $reserva->consulta_id = $consulta->id;
                 $reserva->update();
             }

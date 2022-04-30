@@ -22,19 +22,20 @@
                     aria-labelledby="dropdownMenuButton1">
                     <li>
                         <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar Todo</a>
+                            href="{{ route('pdfs.all', $consulta->id) }}">Descargar Todo</a>
                     </li>
                     <li>
                         <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar Datos generales</a>
+                            href="{{ route('pdfs.datos', $consulta->id) }}">Descargar Datos generales</a>
                     </li>
                     <li>
                         <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar Diagnostico y tratamiento</a>
+                            href="{{ route('pdfs.diagnostico', $consulta->id) }}">Descargar Diagnostico y
+                            tratamiento</a>
                     </li>
                     <li>
                         <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full                    whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar Analisis</a>
+                            href="{{ route('pdfs.analisis', $consulta->id) }}">Descargar Analisis</a>
                     </li>
                 </ul>
             @endif

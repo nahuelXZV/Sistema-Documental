@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Paciente\Historial;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 
 use App\Models\DatosParentales;
@@ -9,6 +10,7 @@ use App\Models\ExamenFisico;
 use App\Models\Paciente;
 use App\Models\Residencia;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LwEdit extends Component
 {
@@ -78,9 +80,11 @@ class LwEdit extends Component
         $paciente->año_cursado = $this->generales['año_cursado'];
         $paciente->situacion_laboral = $this->generales['situacion_laboral'];
         $paciente->save();
+        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Modifico el historial', $paciente->id);
         if ($this->residencia) {
             $residencia = Residencia::where('paciente_id', $paciente->id)->first();
             $residencia->save($this->residencia);
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Modifico la residencia', $paciente->id);
         }
         if ($this->parentales != []) {
             $this->validate([
@@ -101,6 +105,7 @@ class LwEdit extends Component
                 $this->parentales['paciente_id'] = $paciente->id;
                 $this->parentales['vinculo'] = 'Padre';
                 DatosParentales::create($this->parentales);
+                Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo los datos paternales', $paciente->id);
             }
         }
         if ($this->maternales != []) {
@@ -122,6 +127,7 @@ class LwEdit extends Component
                 $this->maternales['paciente_id'] = $paciente->id;
                 $this->maternales['vinculo'] = 'Madre';
                 DatosParentales::create($this->maternales);
+                Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo los datos maternales', $paciente->id);
             }
         }
         if ($this->fisicos != []) {
@@ -146,9 +152,11 @@ class LwEdit extends Component
                 $fisicos->imc = $this->fisicos['imc'];
                 $fisicos->estado_nutricional = $this->fisicos['estado_nutricional'];
                 $fisicos->save();
+                Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Modifico el examen fisico', $paciente->id);
             } else {
                 $this->fisicos['paciente_id'] = $paciente->id;
                 ExamenFisico::create($this->fisicos);
+                Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo el examen fisico', $paciente->id);
             }
         }
         return redirect()->route('historial.index', $paciente->id);
