@@ -23,8 +23,7 @@ class PdfController extends Controller
         $residencia = Residencia::find($id);
         $examen = ExamenFisico::find($id);
         $fecha = now();
-        $pdf = app('dompdf.wrapper');
-        $pdf->loadView('pdf.historial', compact('paciente', 'clinica', 'fecha', 'parentales', 'residencia', 'examen', 'maternales'));
+        $pdf = \PDF::loadView('pdf.historial', compact('paciente', 'clinica', 'fecha', 'parentales', 'residencia', 'examen', 'maternales'));
         return $pdf->download('historial.pdf');
     }
 
