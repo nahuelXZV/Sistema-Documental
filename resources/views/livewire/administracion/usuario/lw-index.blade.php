@@ -83,17 +83,7 @@
                         py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding
                         border-none "
                     aria-labelledby="dropdownMenuButton1">
-                    <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar PDF</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar EXCEL</a>
-                    </li>
-                    <hr class="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />
+
                     <h6
                         class="text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap
                       bg-transparent ">
@@ -194,7 +184,7 @@
                                             <x-edit> </x-edit>
                                         </a>
 
-                                        <button type="button"
+                                        <button type="button" wire:click='delete({{ $usuario->id }})'
                                             class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-delete> </x-delete>
                                         </button>

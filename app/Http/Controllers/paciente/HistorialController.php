@@ -12,10 +12,6 @@ use App\Models\Residencia;
 
 class HistorialController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['role:medico']);
-    }
     public function index($id)
     {
         return view('pacientes.historial.historial', compact('id'));

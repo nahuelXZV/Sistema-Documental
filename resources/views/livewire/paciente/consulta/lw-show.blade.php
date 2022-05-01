@@ -2,11 +2,14 @@
     <x-header-multi>
         <h6 class="font-bold leading-tight text-base text-black">Consulta de la fecha {{ $consulta->fecha }}</h6>
         <div>
+
             @if ($habilitar)
-                <a type="button" href="{{ route('consultas_historial.edit', $consulta->id) }}"
-                    class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                    Iniciar consulta
-                </a>
+                @role('medico')
+                    <a type="button" href="{{ route('consultas_historial.edit', $consulta->id) }}"
+                        class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                        Iniciar consulta
+                    </a>
+                @endrole
             @else
                 <button
                     class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"

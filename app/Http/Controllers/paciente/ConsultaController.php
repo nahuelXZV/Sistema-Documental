@@ -9,7 +9,7 @@ class ConsultaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['role:medico']);
+        $this->middleware(['role:medico|paciente']);
     }
     public function index()
     {

@@ -14,6 +14,7 @@ use App\Http\Controllers\medico\MedicoHorario;
 use App\Http\Controllers\paciente\BitacoraController;
 use App\Http\Controllers\paciente\ConsultaController;
 use App\Http\Controllers\paciente\HistorialController;
+use App\Http\Controllers\paciente\PacienteController;
 use App\Http\Controllers\paciente\ReservasController;
 use App\Http\Controllers\pdf\PdfConsultaController;
 use App\Http\Controllers\pdf\PdfController;
@@ -113,4 +114,9 @@ Route::middleware([
     Route::get('/pdfs/consulta/datos/{id}', [PdfConsultaController::class, 'datos'])->name('pdfs.datos');
     Route::get('/pdfs/consulta/diagnostico/{id}', [PdfConsultaController::class, 'diagnostico'])->name('pdfs.diagnostico');
     Route::get('/pdfs/consulta/analisis/{id}', [PdfConsultaController::class, 'analisis'])->name('pdfs.analisis');
+
+
+    // Route paciente
+    Route::get('/paciente/reserva', [PacienteController::class, 'index'])->name('paciente.index');
+    Route::get('/paciente/reserva/create', [PacienteController::class, 'create'])->name('paciente.create');
 });

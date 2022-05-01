@@ -69,7 +69,9 @@ class LwShow extends Component
         } else {
             $this->analisis = [];
         }
-        Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Accedio a la consulta: ' . $this->consulta->id, $this->consulta->paciente_id);
+        if (Auth::user()->rol == 'medico') {
+            Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Accedio a la consulta: ' . $this->consulta->id, $this->consulta->paciente_id);
+        }
     }
 
     public function render()
