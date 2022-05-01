@@ -24,10 +24,10 @@ class PdfConsultaController extends Controller
         $this->fpdf = new Fpdf;
     }
 
-    function Header($clinica)
+    function Header($clinica, $consulta)
     {
-        $day = date("d-m-Y");
-        $valido = date("d-m-Y", strtotime($day . "+ 10 days"));
+        $day = $consulta->fecha;
+        $valido = date("Y-m-d", strtotime($day . "+ 10 days"));
         // Logo
         $this->fpdf->Image('Logo.png', 10, 8, 33);
         // Arial bold 15
@@ -78,7 +78,7 @@ class PdfConsultaController extends Controller
         $this->fpdf->AddPage();
         $this->fpdf->SetMargins(10, 10, 10);
         $this->fpdf->SetAutoPageBreak(true, 20);
-        $this->Header($clinica);
+        $this->Header($clinica, $consulta);
 
         $this->fpdf->SetFont('Arial', 'B', 13);
         $this->fpdf->Cell(190, 10, utf8_decode('Consulta clínica '), 0, 0, 'C');
@@ -268,7 +268,7 @@ class PdfConsultaController extends Controller
         $this->fpdf->AddPage();
         $this->fpdf->SetMargins(10, 10, 10);
         $this->fpdf->SetAutoPageBreak(true, 20);
-        $this->Header($clinica);
+        $this->Header($clinica, $consulta);
 
         $this->fpdf->SetFont('Arial', 'B', 13);
         $this->fpdf->Cell(190, 10, utf8_decode('Consulta clínica '), 0, 0, 'C');
@@ -289,7 +289,7 @@ class PdfConsultaController extends Controller
         $this->fpdf->AddPage();
         $this->fpdf->SetMargins(10, 10, 10);
         $this->fpdf->SetAutoPageBreak(true, 20);
-        $this->Header($clinica);
+        $this->Header($clinica, $consulta);
 
         $this->fpdf->SetFont('Arial', 'B', 13);
         $this->fpdf->Cell(190, 10, utf8_decode('Consulta clínica '), 0, 0, 'C');
@@ -314,7 +314,7 @@ class PdfConsultaController extends Controller
         $this->fpdf->AddPage();
         $this->fpdf->SetMargins(10, 10, 10);
         $this->fpdf->SetAutoPageBreak(true, 20);
-        $this->Header($clinica);
+        $this->Header($clinica, $consulta);
 
         $this->fpdf->SetFont('Arial', 'B', 13);
         $this->fpdf->Cell(190, 10, utf8_decode('Consulta clínica '), 0, 0, 'C');
