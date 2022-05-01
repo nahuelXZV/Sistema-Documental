@@ -24,11 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('pacientes/{id}', [ApiPacienteController::class, 'show']);
+
 Route::middleware('auth:sanctum')->group(function () {
-
     Route::post('signoff',  [AuthController::class, 'signoff']);
-    Route::get('pacientes/{id}', [ApiPacienteController::class, 'show']);
-
     Route::get('especialidades', [ApiReservaController::class, 'especialidades']);
     Route::get('medicos/{id}', [ApiReservaController::class, 'medicos']);
     Route::get('horarios/{especialidad_id}/{medico_id}', [ApiReservaController::class, 'horarios']);
