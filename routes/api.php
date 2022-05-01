@@ -33,6 +33,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('medicos/{id}', [ApiReservaController::class, 'medicos']);
     Route::get('horarios/{especialidad_id}/{medico_id}', [ApiReservaController::class, 'horarios']);
     Route::post('reservar', [ApiReservaController::class, 'reservar']);
-    Route::get('reservas', [ApiReservaController::class, 'reservas']);
+    Route::post('reservas', [ApiReservaController::class, 'reservas']);
     Route::delete('cancelar/{id}', [ApiReservaController::class, 'cancelar']);
 });
