@@ -12,5 +12,5 @@ class Horario extends Model
         'dia',
         'hora_fin',
         'hora_inicio',
-    ]; 
+    ];
 }

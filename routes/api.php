@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\api\ApiPacienteController;
+use App\Http\Controllers\api\ApiReservaController;
 use App\Http\Controllers\api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +27,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('signoff',  [AuthController::class, 'signoff']);
+    Route::get('pacientes/{id}', [ApiPacienteController::class, 'show']);
+
+    Route::get('especialidades', [ApiReservaController::class, 'especialidades']);
+    Route::get('medicos/{id}', [ApiReservaController::class, 'medicos']);
+    Route::get('horarios/{especialidad_id}/{medico_id}', [ApiReservaController::class, 'horarios']);
+    Route::post('reservar', [ApiReservaController::class, 'reservar']);
+    Route::get('reservas', [ApiReservaController::class, 'reservas']);
+    Route::delete('cancelar/{id}', [ApiReservaController::class, 'cancelar']);
 });
