@@ -17,21 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', [AuthController::class, 'signin']);    //GOOD
-Route::post('register', [AuthController::class, 'signup']); //G
+Route::post('/login', [AuthController::class, 'signin']);    //GOOD
+Route::post('/register', [AuthController::class, 'signup']); //G
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('pacientes/{id}', [ApiPacienteController::class, 'show']);
+Route::get('/pacientes/{id}', 'App\Http\Controllers\api\ApiPacienteController@show');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('signoff',  [AuthController::class, 'signoff']);
-    Route::get('especialidades', [ApiReservaController::class, 'especialidades']);
-    Route::get('medicos/{id}', [ApiReservaController::class, 'medicos']);
-    Route::get('horarios/{especialidad_id}/{medico_id}', [ApiReservaController::class, 'horarios']);
-    Route::post('reservar', [ApiReservaController::class, 'reservar']);
-    Route::post('reservas', [ApiReservaController::class, 'reservas']);
-    Route::delete('cancelar/{id}', [ApiReservaController::class, 'cancelar']);
+    Route::post('/signoff',  [AuthController::class, 'signoff']);
+    Route::get('/especialidades', [ApiReservaController::class, 'especialidades']);
+    Route::get('/medicos/{id}', [ApiReservaController::class, 'medicos']);
+    Route::get('/horarios/{especialidad_id}/{medico_id}', [ApiReservaController::class, 'horarios']);
+    Route::post('/reservar', [ApiReservaController::class, 'reservar']);
+    Route::post('/reservas', [ApiReservaController::class, 'reservas']);
+    Route::delete('/cancelar/{id}', [ApiReservaController::class, 'cancelar']);
 });
