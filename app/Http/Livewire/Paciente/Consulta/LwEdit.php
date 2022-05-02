@@ -103,9 +103,6 @@ class LwEdit extends Component
             Bitacora::Bitacora(Auth::user()->medico->id, Auth::user()->name, 'Creo un nuevo analisis ', $this->consulta->paciente_id);
 
             if ($this->imagenes) {
-                $this->validate([
-                    'imagenes.*' => 'required|image',
-                ]);
                 foreach ($this->imagenes as $imagen) {
                     $documento = new Documentos();
                     $documento->nombre = $imagen->getClientOriginalName();
@@ -116,9 +113,6 @@ class LwEdit extends Component
                 }
             }
             if ($this->pdfs) {
-                $this->validate([
-                    'pdfs.*' => 'required|mimes:pdf',
-                ]);
                 foreach ($this->pdfs as $pdf) {
                     $documento = new Documentos();
                     $documento->nombre = $pdf->getClientOriginalName();

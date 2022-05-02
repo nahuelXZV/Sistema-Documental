@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:medico|paciente']);
+    }
+
     public function index()
     {
         return view('pacientes.paciente_reservar.index');

@@ -10,13 +10,14 @@ use Livewire\WithPagination;
 
 class LwRealizadas extends Component
 {
-    public $paciente;
     use WithPagination;
+    public $paciente;
     public $pagination = 10;
     public $attribute = '';
     public $type = 'fecha';
     public $sort = 'created_at';
     public $direction = 'desc';
+
     //Metodo de reinicio de buscador
     public function updatingAttribute()
     {
@@ -37,11 +38,11 @@ class LwRealizadas extends Component
             $this->direction = 'asc';
         }
     }
+
     public function mount($id)
     {
         $this->paciente = Paciente::find($id);
     }
-
 
     public function render()
     {

@@ -3,7 +3,7 @@
     <x-header-table>
         <div class="container-fluid flex flex-wrap">
             <div class="m-1">
-                <select wire:model='pagination'
+                <select wire:model.defer='pagination'
                     class="w-32 px-3 py-1.5 text-base font-normal text-gray-700  bg-white  border border-solid border-gray-300 focus:border-blue-600">
                     <option selected value="10">Paginar</option>
                     <option value="20">20</option>

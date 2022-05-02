@@ -15,7 +15,7 @@ class LwIndex extends Component
     public $sort = 'nombre';
     public $direction = 'asc';
 
- 
+
     //Metodo de reinicio de buscador
     public function updatingAttribute()
     {
@@ -37,12 +37,12 @@ class LwIndex extends Component
         }
     }
 
-
     public function delete($id)
     {
         $medico = Medico::find($id);
         $medico->delete();
     }
+
     public function render()
     {
         switch ($this->type) {

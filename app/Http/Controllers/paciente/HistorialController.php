@@ -12,6 +12,11 @@ use App\Models\Residencia;
 
 class HistorialController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:medico|paciente']);
+    }
+
     public function index($id)
     {
         return view('pacientes.historial.historial', compact('id'));
@@ -23,18 +28,5 @@ class HistorialController extends Controller
     public function edit($id)
     {
         return view('pacientes.historial.edit', compact('id'));
-    }
-
-    public function historial($id)
-    {
-        $paciente = Paciente::find($id);
-        $clinica = Clinica::find(1);
-        $parentales = DatosParentales::where('paciente_id', $id)->where('vinculo', 'Padre')->first();
-        $maternales = DatosParentales::where('paciente_id', $id)->where('vinculo', 'Madre')->first();
-        $residencia = Residencia::find($id);
-        $examen = ExamenFisico::find($id);
-        $fecha = now();
-        $pdf = \PDF::loadView('pdf.historial', compact('paciente', 'clinica', 'fecha', 'parentales', 'residencia', 'examen', 'maternales'));
-        return $pdf->download('historial.pdf');
     }
 }

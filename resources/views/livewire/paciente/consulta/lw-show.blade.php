@@ -268,12 +268,14 @@
                 </div>
             @endif
 
-            @if ($pdfs || $imagenes)
+            @if ($pdfs)
                 <h1 for="exampleInputEmail2" class="form-label inline-block font-bold mb-2 mt-4 text-black">
                     Archivos PDF</h1><br>
                 @foreach ($pdfs as $pdf)
                     <a href="{{ $pdf->dir }}" target="_blank">{{ $pdf->nombre }}</a> <br>
                 @endforeach
+            @endif
+            @if ($imagenes)
                 <h1 for="exampleInputEmail2" class="form-label inline-block font-bold mb-2 mt-4 text-black">
                     Archivos de imagen</h1><br>
                 <div class="flex">
@@ -286,8 +288,6 @@
                     @endforeach
                 </div>
             @endif
-
-
         </div>
     </div>
 </div>
