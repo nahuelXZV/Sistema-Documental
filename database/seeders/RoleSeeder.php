@@ -39,5 +39,13 @@ class RoleSeeder extends Seeder
             'name' => 'horarios',
             'descripcion' => 'Gestionar horarios'
         ])->syncRoles([$admi]);
+        Permission::create([
+            'name' => 'reservas',
+            'descripcion' => 'Gestionar Reservas'
+        ])->syncRoles([$admi]);
+        Permission::create([
+            'name' => 'historial clinico',
+            'descripcion' => 'Gestionar Historiales clinicos'
+        ])->syncRoles([$admi]);
     }
 }
